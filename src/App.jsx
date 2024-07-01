@@ -1,11 +1,11 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 import NavBar from './Pages/NavBar';
-import ShowTransactions from './Pages/ShowTransactions';
-import ShowTransaction from './Pages/ShowTransaction';
-import NewTransaction from './Pages/NewTransaction';
-import EditTransaction from './Pages/EditTransaction';
-import LogIn from './Pages/LogIn';
-import SignUp from './Pages/SignUp';
+// import ShowTransactions from './Pages/ShowTransactions';
+// import ShowTransaction from './Pages/ShowTransaction';
+// import NewTransaction from './Pages/NewTransaction';
+// import EditTransaction from './Pages/EditTransaction';
+// import LogIn from './Pages/LogIn';
+// import SignUp from './Pages/SignUp';
 
 const App = () => {
   // <Route index element={<ShowTransactions />} />

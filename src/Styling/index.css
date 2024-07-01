@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 1.2rem;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas: "nav" "main";
+}
+
+.nav {
+  grid-area: "nav";
+  background: rgb(2, 36, 61);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 5%;
+}
+.nav__title h1, .nav__login-btn button,
+.nav .menu-position span,
+.nav .menu-arrow {
+  cursor: pointer;
+}
+.nav__login-btn button {
+  background: transparent;
+  color: white;
+  border: 0.2rem solid white;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+.nav__login-btn button:hover {
+  box-shadow: 0 0 0.5rem 0.1rem white;
+}
+.nav__login-btn button:active {
+  box-shadow: none;
+}
+.nav .menu-position {
+  position: relative;
+  border-bottom: 0.2rem solid white;
+}
+.nav .menu-position .menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  color: black;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  padding: 0.3rem;
+}
+.nav .menu-position .menu span {
+  text-align: right;
+  border-bottom: 0.1rem solid black;
+  padding: 0.3rem;
+}
+
+/*# sourceMappingURL=index.css.map */
