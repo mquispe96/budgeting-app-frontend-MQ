@@ -5,7 +5,7 @@
 To complete the front-end application, you will need to build a React application that allows for CRUD operations to be performed on a single resource. You will also need to display the data thoughtfully and clearly.
 
 1. All pages include the same navigation bar, which includes the name of the application and a button to create a new resource.
-2. It should have an Index page that presents all of the resources in the database table.
+2. It has an Index page that presents all of the resources in the database table.
 3. After clicking on a single resource, you are brought to a Show page which includes more detailed information about the specific resource.
 4. When the button in the navigation bar to create a new resource is clicked, you are brought to a new page that includes a form to create a new resource.
 5. Forms are properly labeled and the `type` of inputs should be properly set. For example, an input that requires a `number` should have type `number`, not `text`.
