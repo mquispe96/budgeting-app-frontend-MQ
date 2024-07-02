@@ -5,14 +5,13 @@ import ShowTransactions from './Pages/ShowTransactions';
 // import NewTransaction from './Pages/NewTransaction';
 // import EditTransaction from './Pages/EditTransaction';
 import LogIn from './Pages/LogIn';
-// import SignUp from './Pages/SignUp';
+import SignUp from './Pages/SignUp';
 // import DeleteAccount from './Pages/DeleteAccount';
 
 const App = () => {
   // <Route path="/transactions/transaction/:id" element={<ShowTransaction />} />
   // <Route path="/transactions/transaction/new" element={<NewTransaction />} />
   // <Route path="/transactions/transaction/edit/:id" element={<EditTransaction />} />
-  // <Route path="/transactions/signup" element={<SignUp />} />
   // <Route path="/transactions/delete-account" element={<DeleteAccount />} />
   return (
     <Routes>
@@ -21,6 +20,7 @@ const App = () => {
         <Route index element={<ShowTransactions />} />
 
         <Route path="/transactions/login" element={<LogIn />} />
+        <Route path="/transactions/signup" element={<SignUp />} />
       </Route>
     </Routes>
   );

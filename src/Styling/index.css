@@ -5,6 +5,9 @@
   cursor: default;
   font-size: 1.2rem;
 }
+* input {
+  cursor: text;
+}
 
 html,
 body {
@@ -131,20 +134,23 @@ body {
   background: lightgray;
 }
 
-.login-form {
+.login-form,
+.signup-form {
   grid-area: "main";
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
 }
-.login-form input {
+.login-form input,
+.signup-form input {
   margin: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0.1rem solid lightgray;
 }
-.login-form button {
+.login-form button,
+.signup-form button {
   margin: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -152,13 +158,16 @@ body {
   background: transparent;
   cursor: pointer;
 }
-.login-form button:hover {
+.login-form button:hover,
+.signup-form button:hover {
   box-shadow: 0 0 0.5rem 0.1rem lightgray;
 }
-.login-form button:active {
+.login-form button:active,
+.signup-form button:active {
   box-shadow: none;
 }
-.login-form p {
+.login-form p,
+.signup-form p {
   color: red;
 }
 

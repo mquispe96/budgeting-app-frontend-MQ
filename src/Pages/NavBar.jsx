@@ -14,6 +14,8 @@ const NavBar = () => {
     localStorage.setItem('isLogged', JSON.stringify(isLogged));
   }, [isLogged]);
 
+  const checkPath = !window.location.href.includes('login') && !window.location.href.includes('signup');
+
   return (
     <LogInContext.Provider value={{isLogged, setIsLogged}}>
       <header className="nav">
@@ -22,11 +24,11 @@ const NavBar = () => {
         </div>
         {isLogged ? (
           <Welcome />
-        ) : (
+        ) : checkPath ? (
           <div className="nav__login-btn">
             <button onClick={() => navigate('/transactions/login')}>Log In</button>
           </div>
-        )}
+        ) : ''}
       </header>
       <Outlet />
     </LogInContext.Provider>
