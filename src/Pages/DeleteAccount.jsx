@@ -8,9 +8,9 @@ import {LuEyeOff} from 'react-icons/lu';
 const DeleteAccount = () => {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
-  const { isLogged,setIsLogged} = useContext(LogInContext);
+  const {isLogged, setIsLogged} = useContext(LogInContext);
   const [password, setPassword] = useState('');
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [confirmationWindow, setConfirmationWindow] = useState(false);
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [error, setError] = useState('');
 
@@ -21,45 +21,60 @@ const DeleteAccount = () => {
       setTimeout(() => setError(''), 3000);
       return;
     }
-    if(password === isLogged.password){
-      axios
-        .delete(`${BASE_URL}/usernames/${isLogged.id}`)
-        .then(res => {
-          setIsLogged(false);
-          navigate('/transactions');
-        })
-        .catch(err => {
-          setError(err.response.data.error);
-          setTimeout(() => setError(''), 3000);
-        });
+    if (password === isLogged.password) {
+      setConfirmationWindow(true);
     }
+  };
+
+  const handleConfirmation = () => {
+    setConfirmationWindow(false);
+    axios
+      .delete(`${BASE_URL}/usernames/${isLogged.id}`)
+      .then(res => {
+        setIsLogged(false);
+        navigate('/transactions');
+      })
+      .catch(err => {
+        setError(err.response.data.error);
+        setTimeout(() => setError(''), 3000);
+      });
   };
 
   return (
     <form onSubmit={handleSubmit} className="delete-form">
       <h2>Delete Account</h2>
-      <label htmlFor="password">Password</label>
-      <div className="delete-form__password">
-        <input
-          type={passwordVisibility ? 'text' : 'password'}
-          id="password"
-          value={password}
-          onChange={e =>
-            setPassword(e.target.value)
-          }
-        />
-        {!passwordVisibility ? (
-          <LuEye onClick={() => setPasswordVisibility(prev => !prev)} />
-        ) : (
-          <LuEyeOff onClick={() => setPasswordVisibility(prev => !prev)} />
-        )}
-      </div>
-      <div className="delete-form__btns">
-        <button type="button" onClick={() => navigate('/transactions')}>
-          Cancel
-        </button>
-        <button type="submit">Delete Account</button>
-      </div>
+      {!confirmationWindow ? (
+        <>
+          <label htmlFor="password">Password:</label>
+          <div className="delete-form__password">
+            <input
+              type={passwordVisibility ? 'text' : 'password'}
+              id="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            {!passwordVisibility ? (
+              <LuEye onClick={() => setPasswordVisibility(prev => !prev)} />
+            ) : (
+              <LuEyeOff onClick={() => setPasswordVisibility(prev => !prev)} />
+            )}
+          </div>
+          <div className="delete-form__btns">
+            <button type="button" onClick={() => navigate('/transactions')}>
+              Cancel
+            </button>
+            <button type="submit">Delete Account</button>
+          </div>
+        </>
+      ) : (
+        <div className="confirmation">
+          <p>Are you sure you want to delete your account?</p>
+          <div className="confirmation__btns">
+            <button onClick={handleConfirmation}>Yes</button>
+            <button onClick={() => setConfirmationWindow(false)}>No</button>
+          </div>
+        </div>
+      )}
       {error && <p>{error}</p>}
     </form>
   );

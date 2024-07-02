@@ -137,7 +137,8 @@ body {
 }
 
 .login-form,
-.signup-form, .delete-form {
+.signup-form,
+.delete-form {
   grid-area: 'main';
   display: flex;
   flex-direction: column;
@@ -165,5 +166,26 @@ body {
   }
   p {
     color: red;
+  }
+}
+
+.confirmation {
+  padding: 1rem;
+  &__btns {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 0.1rem solid lightgray;
+      background: transparent;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0 0 0.5rem 0.1rem lightgray;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
   }
 }
