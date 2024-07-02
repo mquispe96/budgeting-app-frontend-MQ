@@ -37,13 +37,6 @@ const SignUp = () => {
     });
   };
 
-  const handlePasswordChange = password => {
-    validatePassword(password);
-    setPasswordPassed(
-      Object.values(validationResults).every(result => result === true),
-    );
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
     const {username, password, confirmPassword} = credentials;
@@ -60,7 +53,7 @@ const SignUp = () => {
     axios
       .post(`${BASE_URL}/usernames`, {username, password})
       .then(res => {
-        setIsLogged(true);
+        setIsLogged(res.data);
         navigate('/transactions');
       })
       .catch(err => {
@@ -70,8 +63,10 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    handlePasswordChange(credentials.password);
-  }, [credentials.password, validationResults]);
+    setPasswordPassed(
+      Object.values(validationResults).every(result => result === true),
+    );
+  }, [validationResults]);
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
@@ -91,9 +86,10 @@ const SignUp = () => {
           type={passwordVisibility ? 'text' : 'password'}
           id="password"
           value={credentials.password}
-          onChange={e =>
-            setCredentials({...credentials, password: e.target.value})
-          }
+          onChange={e => {
+            setCredentials({...credentials, password: e.target.value});
+            validatePassword(e.target.value);
+          }}
         />
         {!passwordVisibility ? (
           <LuEye onClick={() => setPasswordVisibility(prev => !prev)} />
@@ -101,7 +97,9 @@ const SignUp = () => {
           <LuEyeOff onClick={() => setPasswordVisibility(prev => !prev)} />
         )}
       </div>
-      {!passwordPassed && !credentials.password ? '' : !passwordPassed ? (
+      {!passwordPassed && !credentials.password ? (
+        ''
+      ) : !passwordPassed ? (
         <ul>
           <li style={{color: validationResults.length ? 'green' : 'red'}}>
             At least 12 characters

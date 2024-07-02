@@ -24,7 +24,7 @@ const LogIn = () => {
     axios
       .post(`${BASE_URL}/usernames/login`, credentials)
       .then(res => {
-        setIsLogged(true);
+        setIsLogged(res.data);
         navigate('/transactions');
       })
       .catch(err => {

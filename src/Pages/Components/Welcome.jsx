@@ -31,7 +31,15 @@ const Welcome = () => {
             <span
               onClick={() => {
                 setIsComponentVisible(prev => !prev);
-                navigate('/delete-account');
+                navigate('/transactions/change-password');
+              }}
+            >
+              Change Password
+            </span>
+            <span
+              onClick={() => {
+                setIsComponentVisible(prev => !prev);
+                navigate('/transactions/delete-account');
               }}
             >
               Delete Account
