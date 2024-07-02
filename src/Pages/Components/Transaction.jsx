@@ -14,7 +14,7 @@ const Transaction = ({log, isLogged}) => {
       <td>{type}</td>
       {isLogged && (
         <td>
-          <span onClick={() => navigate(`/transaction/${id}`)}>Details</span>
+          <span onClick={() => navigate(`/transactions/transaction/${id}`)}>Details</span>
         </td>
       )}
     </tr>

@@ -27,6 +27,11 @@ const ShowTransactions = () => {
     setTimeout(() => setIsLoading(false), 2000);
   }, []);
 
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 2000);
+  }, [isLogged]);
+
   return (
     <main className="transactions">
       <h1>Transactions</h1>
@@ -53,7 +58,7 @@ const ShowTransactions = () => {
               </span>
             </h2>
             {isLogged && (
-              <p onClick={() => navigate('/transaction/new')}>
+              <p onClick={() => navigate('/transactions/transaction/new')}>
                 Add a new transaction
               </p>
             )}

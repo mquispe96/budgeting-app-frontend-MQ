@@ -131,4 +131,35 @@ body {
   background: lightgray;
 }
 
+.login-form {
+  grid-area: "main";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.login-form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid lightgray;
+}
+.login-form button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid lightgray;
+  background: transparent;
+  cursor: pointer;
+}
+.login-form button:hover {
+  box-shadow: 0 0 0.5rem 0.1rem lightgray;
+}
+.login-form button:active {
+  box-shadow: none;
+}
+.login-form p {
+  color: red;
+}
+
 /*# sourceMappingURL=index.css.map */

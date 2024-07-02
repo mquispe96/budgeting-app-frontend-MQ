@@ -24,7 +24,7 @@ const NavBar = () => {
           <Welcome />
         ) : (
           <div className="nav__login-btn">
-            <button onClick={() => navigate('/login')}>Log In</button>
+            <button onClick={() => navigate('/transactions/login')}>Log In</button>
           </div>
         )}
       </header>
