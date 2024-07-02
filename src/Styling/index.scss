@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2% 5%;
+  padding: 2rem 5rem;
   &__title h1,
   &__login-btn button,
   .menu-position span,
@@ -52,10 +52,11 @@ body {
   .menu-position {
     position: relative;
     border-bottom: 0.2rem solid white;
-    .menu{
+    .menu {
       position: absolute;
       top: 100%;
       right: 0;
+      z-index: 1;
       background: white;
       color: black;
       border: 0.1rem solid black;
@@ -64,10 +65,69 @@ body {
       flex-direction: column;
       width: 10rem;
       padding: 0.3rem;
-      span{
+      span {
         text-align: right;
         border-bottom: 0.1rem solid black;
         padding: 0.3rem;
+      }
+    }
+  }
+}
+
+.transactions {
+  grid-area: 'main';
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  &__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    span {
+      font-size: inherit;
+    }
+    p {
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+      &:active {
+        font-weight: normal;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__table {
+    width: 100%;
+    border-radius: 1.3rem;
+    box-shadow: 0 0 0.5rem 0.1rem lightgray;
+    border-collapse: collapse;
+    overflow: hidden;
+    td,
+    th {
+      padding: 1rem;
+      span {
+        cursor: pointer;
+        &:hover {
+          font-weight: bold;
+        }
+        &:active {
+          font-weight: normal;
+          text-decoration: underline;
+        }
+      }
+    }
+    thead {
+      background: rgb(2, 36, 61);
+      color: white;
+    }
+    tbody {
+      text-align: center;
+      tr {
+        &:nth-child(even) {
+          background: lightgray;
+        }
       }
     }
   }

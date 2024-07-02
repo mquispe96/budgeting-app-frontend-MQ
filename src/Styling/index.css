@@ -27,7 +27,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2% 5%;
+  padding: 2rem 5rem;
 }
 .nav__title h1, .nav__login-btn button,
 .nav .menu-position span,
@@ -55,6 +55,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
+  z-index: 1;
   background: white;
   color: black;
   border: 0.1rem solid black;
@@ -68,6 +69,66 @@ body {
   text-align: right;
   border-bottom: 0.1rem solid black;
   padding: 0.3rem;
+}
+
+.transactions {
+  grid-area: "main";
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.transactions__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+.transactions__header span {
+  font-size: inherit;
+}
+.transactions__header p {
+  cursor: pointer;
+}
+.transactions__header p:hover {
+  font-weight: bold;
+}
+.transactions__header p:active {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.transactions__table {
+  width: 100%;
+  border-radius: 1.3rem;
+  box-shadow: 0 0 0.5rem 0.1rem lightgray;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+.transactions__table td,
+.transactions__table th {
+  padding: 1rem;
+}
+.transactions__table td span,
+.transactions__table th span {
+  cursor: pointer;
+}
+.transactions__table td span:hover,
+.transactions__table th span:hover {
+  font-weight: bold;
+}
+.transactions__table td span:active,
+.transactions__table th span:active {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.transactions__table thead {
+  background: rgb(2, 36, 61);
+  color: white;
+}
+.transactions__table tbody {
+  text-align: center;
+}
+.transactions__table tbody tr:nth-child(even) {
+  background: lightgray;
 }
 
 /*# sourceMappingURL=index.css.map */
