@@ -11,6 +11,9 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if(!isLogged) {
+      navigate('/transactions');
+    }
     localStorage.setItem('isLogged', JSON.stringify(isLogged));
   }, [isLogged]);
 

@@ -32,7 +32,6 @@ const DeleteAccount = () => {
       .delete(`${BASE_URL}/usernames/${isLogged.id}`)
       .then(res => {
         setIsLogged(false);
-        navigate('/transactions');
       })
       .catch(err => {
         setError(err.response.data.error);

@@ -7,13 +7,12 @@ import ShowTransactions from './Pages/ShowTransactions';
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import DeleteAccount from './Pages/DeleteAccount';
-// import ChangePassword from './Pages/ChangePassword';
+import ChangePassword from './Pages/ChangePassword';
 
 const App = () => {
   // <Route path="/transactions/transaction/:id" element={<ShowTransaction />} />
   // <Route path="/transactions/transaction/new" element={<NewTransaction />} />
   // <Route path="/transactions/transaction/edit/:id" element={<EditTransaction />} />
-  // <Route path="/transactions/change-password" element={<ChangePassword />} />
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/transactions" replace />} />
@@ -25,6 +24,10 @@ const App = () => {
         <Route
           path="/transactions/delete-account"
           element={<DeleteAccount />}
+        />
+        <Route
+          path="/transactions/change-password"
+          element={<ChangePassword />}
         />
       </Route>
     </Routes>

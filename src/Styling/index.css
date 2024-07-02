@@ -136,7 +136,7 @@ body {
 
 .login-form,
 .signup-form,
-.delete-form {
+.delete-form, .update-form {
   grid-area: "main";
   display: flex;
   flex-direction: column;
@@ -145,7 +145,7 @@ body {
 }
 .login-form input,
 .signup-form input,
-.delete-form input {
+.delete-form input, .update-form input {
   margin: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -153,7 +153,7 @@ body {
 }
 .login-form button,
 .signup-form button,
-.delete-form button {
+.delete-form button, .update-form button {
   margin: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -163,17 +163,17 @@ body {
 }
 .login-form button:hover,
 .signup-form button:hover,
-.delete-form button:hover {
+.delete-form button:hover, .update-form button:hover {
   box-shadow: 0 0 0.5rem 0.1rem lightgray;
 }
 .login-form button:active,
 .signup-form button:active,
-.delete-form button:active {
+.delete-form button:active, .update-form button:active {
   box-shadow: none;
 }
 .login-form p,
 .signup-form p,
-.delete-form p {
+.delete-form p, .update-form p {
   color: red;
 }
 
