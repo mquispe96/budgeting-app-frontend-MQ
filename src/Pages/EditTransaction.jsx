@@ -93,18 +93,21 @@ const EditTransaction = () => {
         }, []),
       );
     });
-    axios.get(`${BASE_URL}/transactions/${id}`).then(res => {
-      setTransaction(
-        Object.keys(res.data).reduce((obj, key) => {
-          if (key !== 'amount') {
-            obj[key] = {value: res.data[key], label: res.data[key]};
-          } else {
-            obj[key] = res.data[key];
-          }
-          return obj;
-        }, {}),
-      );
-    });
+    axios
+      .get(`${BASE_URL}/transactions/${id}`)
+      .then(res => {
+        setTransaction(
+          Object.keys(res.data).reduce((obj, key) => {
+            if (key !== 'amount') {
+              obj[key] = {value: res.data[key], label: res.data[key]};
+            } else {
+              obj[key] = res.data[key];
+            }
+            return obj;
+          }, {}),
+        );
+      })
+      .catch(error => navigate('/transactions/404'));
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);

@@ -15,6 +15,9 @@ const ShowTransaction = () => {
   useEffect(() => {
     axios.get(`${BASE_URL}/transactions/${id}`).then(res => {
       setTransaction(res.data);
+    })
+    .catch(err => {
+      navigate('/transactions/404');
     });
     setTimeout(() => setIsLoading(false), 2000);
   }, []);

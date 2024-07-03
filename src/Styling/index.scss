@@ -265,10 +265,11 @@ body {
   }
 }
 
-.create-transaction, .update-transaction {
+.create-transaction,
+.update-transaction {
   grid-area: 'main';
   padding: 2rem;
-  .confirm{
+  .confirm {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -324,6 +325,27 @@ body {
           box-shadow: none;
         }
       }
+    }
+  }
+}
+
+.not-found {
+  grid-area: 'main';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button{
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid lightgray;
+    background: transparent;
+    &:hover {
+      box-shadow: 0 0 0.5rem 0.1rem lightgray;
+    }
+    &:active {
+      box-shadow: none;
     }
   }
 }

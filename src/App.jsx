@@ -8,6 +8,7 @@ import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import DeleteAccount from './Pages/DeleteAccount';
 import ChangePassword from './Pages/ChangePassword';
+import NotFound from './Pages/NotFound';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           path="/transactions/change-password"
           element={<ChangePassword />}
         />
+        <Route path="/transactions/404" element={<NotFound />} />
       </Route>
     </Routes>
   );

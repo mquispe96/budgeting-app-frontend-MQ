@@ -23,7 +23,8 @@ const ShowTransactions = () => {
             : acc - curr.amount;
         }, 0),
       );
-    });
+    })
+    .catch(err => navigate('/transactions/404'));
     setTimeout(() => setIsLoading(false), 2000);
   }, []);
 
