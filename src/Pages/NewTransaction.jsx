@@ -68,22 +68,34 @@ const NewTransaction = () => {
   useEffect(() => {
     axios.get(`${BASE_URL}/transactions`).then(response => {
       setNames(
-        response.data.map(transaction => ({
-          value: transaction.name,
-          label: transaction.name,
-        })),
+        response.data.reduce((acc, transaction) => {
+          const exists = acc.some(item => item.value === transaction.name);
+          if (!exists) {
+            acc.push({value: transaction.name, label: transaction.name});
+          }
+          return acc;
+        }, []),
       );
       setFroms(
-        response.data.map(transaction => ({
-          value: transaction.from,
-          label: transaction.from,
-        })),
+        response.data.reduce((acc, transaction) => {
+          const exists = acc.some(item => item.value === transaction.from);
+          if (!exists) {
+            acc.push({value: transaction.from, label: transaction.from});
+          }
+          return acc;
+        }, []),
       );
       setCategories(
-        response.data.map(transaction => ({
-          value: transaction.category,
-          label: transaction.category,
-        })),
+        response.data.reduce((acc, transaction) => {
+          const exists = acc.some(item => item.value === transaction.category);
+          if (!exists) {
+            acc.push({
+              value: transaction.category,
+              label: transaction.category,
+            });
+          }
+          return acc;
+        }, []),
       );
       setTimeout(() => {
         setIsLoading(false);

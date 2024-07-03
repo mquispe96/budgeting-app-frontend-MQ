@@ -265,7 +265,7 @@ body {
   }
 }
 
-.create-transaction {
+.create-transaction, .update-transaction {
   grid-area: 'main';
   padding: 2rem;
   .confirm{
