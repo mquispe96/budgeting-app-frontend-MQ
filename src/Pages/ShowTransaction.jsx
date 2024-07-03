@@ -39,22 +39,21 @@ const ShowTransaction = () => {
               <p>Updated: {transaction.updated}</p>
             </div>
           </section>
-          <section className="transaction__btns">
-            <button onClick={() => navigate('/transactions')}>Back</button>
-            <button onClick={() => navigate(`/transactions/transaction/edit/${id}`)}>
-              Edit
-            </button>
-            <button onClick={() => setShowDeleteWindow(true)}>
-              Delete
-            </button>
-          </section>
+          {!showDeleteWindow && (
+            <section className="transaction__btns">
+              <button onClick={() => navigate('/transactions')}>Back</button>
+              <button
+                onClick={() => navigate(`/transactions/transaction/edit/${id}`)}
+              >
+                Edit
+              </button>
+              <button onClick={() => setShowDeleteWindow(true)}>Delete</button>
+            </section>
+          )}
         </>
       )}
       {showDeleteWindow && (
-        <DeleteTransaction
-          id={id}
-          setShowDeleteWindow={setShowDeleteWindow}
-        />
+        <DeleteTransaction id={id} setShowDeleteWindow={setShowDeleteWindow} />
       )}
     </main>
   );
