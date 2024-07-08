@@ -1,5 +1,8 @@
 # Budgeting App - Frontend
 
+- [Backend Repo](https://github.com/mquispe96/budgeting-app-backend-MQ)
+- [Deployed App](https://budgeting-app-mq.netlify.app/)
+
 #### Front-end feature requirements
 
 To complete the front-end application, you will need to build a React application that allows for CRUD operations to be performed on a single resource. You will also need to display the data thoughtfully and clearly.
